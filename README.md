@@ -15,3 +15,4 @@ Scrape a job search site for data with the intention to use the data to determin
 
 #### Capstone Project: 
 Currently creating a model which predicts which member is going to churn.
+(Note: Data files to big, download from https://www.kaggle.com/c/kkbox-churn-prediction-challenge)
