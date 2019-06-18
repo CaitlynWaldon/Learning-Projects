@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <center> <h1><u><font color="black">Churn Prediction</font></u></h1></center>
+    <div style="position:absolute; left; width: 400px; height: 200px; z-index: 15; top: 40%; left: 40%; margin: -100px 0 0 -150px;">
+        <form action="" method="POST">
+            <input id="city" name="city" class="form-control" aria-describedby="" placeholder="Enter City (1, 4, 5, 13, 15, 22, 999)">
+            <br>
+            <input id="registered_via" name="registered_via" class="form-control" aria-describedby="" placeholder="Enter Registration Method (3, 4, 7, 9, 13)">
+            <br>
+            <input id="payment_method_id" name="payment_method_id" class="form-control" aria-describedby="" placeholder="Enter Payment Method (2-41)">
+            <br>
+            <input id="payment_plan_days" name="payment_plan_days" class="form-control" aria-describedby="" placeholder="Enter Billing Period (0-450)">
+            <br>
+            <input id="actual_amount_paid" name="actual_amount_paid" class="form-control" aria-describedby="" placeholder="Enter Subscription Fee (0-2000)">
+            <br>
+            <input id="is_auto_renew" name="is_auto_renew" class="form-control" aria-describedby="" placeholder="Is Membership Flagged as Auto Renew?">
+            <br>
+            <input id="is_cancel" name="is_cancel" class="form-control" aria-describedby="" placeholder="Is Membership Flagged as Canceled?">
+            <br>
+            <input id="num_unq" name="num_unq" class="form-control" aria-describedby="" placeholder="Enter Number of Unique Songs Listended To">
+            <br>
+            <input id="total_songs" name="total_songs" class="form-control" aria-describedby="" placeholder="Enter Total Number of Songs Listended To">
+            <br>
+            <input id="songs_repeated" name="songs_repeated" class="form-control" aria-describedby="" placeholder="Enter Number of Time Songs were Repeated">
+            <br>
+            <input id="membership_length" name="membership_length" class="form-control" aria-describedby="" placeholder="Enter Membership Length (0-15)">
+            <br>
+            <center><input id="modalBtn" class="btn btn-primary" type="submit" value="Predict" /></center>
+        </form>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    
+    <div style="font-size:36px;">
+        {% if churn > 50 %}
+            <p></p>
+            <font color="black">  Chance of Churning: {{churn}}%</font> 
+        {% elif churn == 0 and nonchurn == 0 %}
+            <font color="white">  </font>  
+        {% else %}
+            <p></p>
+            <font color="black">  Chance of Staying: {{nonchurn}}%</font> 
+        {% endif %}
+    </div>
+
+{% endblock %}

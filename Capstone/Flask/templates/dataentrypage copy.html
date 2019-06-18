@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <center> <h1><u><font color="yellow">Machine Learning with Titanic Data</font></u></h1></center>
+    <div style="position: absolute; width: 600px; height: 200px; z-index: 15; top: 40%; left: 40%; margin: -100px 0 0 -150px;">
+        <form action="" method="POST">
+            <input id="pclass" name="pclass" class="form-control" aria-describedby="" placeholder="Enter Class">
+            <br>
+            <input id="sex" name="sex" class="form-control" aria-describedby="" placeholder="Enter Gender">
+            <br>
+            <input id="age" name="age" class="form-control" aria-describedby="" placeholder="Enter Age">
+            <br>
+            <input id="fare" name="fare" class="form-control" aria-describedby="" placeholder="Enter fare">
+            <br>
+            <input id="sibsp" name="sibsp" class="form-control" aria-describedby="" placeholder="Enter Number of Siblings">
+            <br>
+            <center><input id="modalBtn" class="btn btn-primary" type="submit" value="Predict" /></center>
+        </form>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    
+    <div style="font-size:18px;">
+        {% if survive > 50 %}
+        
+            <img height="84" width="84" src="https://www.rxwallpaper.site/wp-content/uploads/kate-winslet-titanic-rose-kate-winslet-rachel-mcadams-pinterest-800x800.jpg"/>
+            <p></p>
+            <font color="white">  Chance of Survival: {{survive}}%</font> 
+        {% elif survive == 0 and dead == 0 %}
+            <font color="white">Please enter data.</font>
+         {% else %}
+            <img height="84" width="84" src="http://coolmenshair.com/wp-content/uploads/jack-dawson-slicked-back-hairstyle.jpg" />
+            <p></p>
+            <font color="white">  Chance of Death: {{dead}}%</font> 
+        {% endif %}
+    </div>
+
+{% endblock %}
